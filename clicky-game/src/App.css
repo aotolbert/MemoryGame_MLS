@@ -26,6 +26,11 @@
   background-color: darkolivegreen;
 }
 
+img:hover {
+  background-color:  maroon;
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

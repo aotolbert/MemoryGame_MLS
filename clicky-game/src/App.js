@@ -10,7 +10,8 @@ class App extends Component {
     links: [],
     currentScore: 0,
     highScore: 0,
-    guessed: ["Item"]
+    guessed: ["Item"],
+    badGuess: false
   };
 
   componentDidMount() {
@@ -33,8 +34,16 @@ class App extends Component {
   };
 
   badGuess = () => {
-    this.setState({ guessed: ["Item"] })
+    if (this.state.currentScore > this.state.highScore) {
+      this.setState({ highScore: this.state.currentScore })
+    }
+    this.setState({ guessed: ["Item"] });
     this.setState({ currentScore: 0 })
+    this.alertLose();
+  }
+
+  alertLose = () => {
+    alert("Whoops! You've already selected him, try again!!")
   }
 
   handleImageClick = event => {
@@ -72,10 +81,11 @@ class App extends Component {
           <Col size="12">
           {this.state.links.map(img => (
 
-                  <Image key={img.id} src={img.href} onClick={this.handleImageClick} id={img.name}/>
+                  <Image key={img.name} src={img.href} onClick={this.handleImageClick} id={img.name}/>
 
   
                 ))}
+
           </Col>
 
         </Row>
