@@ -1,8 +1,8 @@
 import React from "react";
 
-const Image = ({ link, styler }) => (
+const Image = (props) => (
     // eslint-disable-next-line jsx-a11y/alt-text
-    <img src={`${link}`} className="img-thumbnail shadow-lg p-3 mb-5 bg-white rounded p-3 mx-4">
+    <img className="img-thumbnail shadow-lg p-3 mb-5 bg-white rounded p-3 mx-4" {...props}>
     </img>
   );
 
